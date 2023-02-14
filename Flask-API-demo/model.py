@@ -1,9 +1,11 @@
+# -*- coding: UTF-8 -*-
 import pickle
 import gzip
+import xgboost as xgb
 
 # 載入Model
-with gzip.open('./xgboost-iris.pgz', 'r') as f:
-    xgboostModel = pickle.load(f)
+xgboostModel = xgb.XGBClassifier()
+xgboostModel.load_model("./model/model_sklearn.json")
 
 
 def predict(input):
